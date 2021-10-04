@@ -1,0 +1,1306 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@300&display=swap");
+:root {
+  --black: #333;
+  --white: #fff;
+  --blue: #04c3ff;
+  --bg-grad: linear-gradient(
+    140deg,
+    rgba(218, 218, 218, 0.6) 0%,
+    rgba(153, 153, 153, 0.6) 30%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+}
+
+.parentContainer.dark {
+  --black: #fff;
+  --white: #000;
+  --blue: #04c3ff;
+  --bg-grad: linear-gradient(
+    140deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(153, 153, 153, 0.6) 70%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+}
+
+.parentContainer {
+  min-height: 100vh;
+  height: 100%;
+  min-width: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 10vh auto 20px;
+  overflow-x: hidden;
+}
+
+.parentContainer header {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.parentContainer header nav {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  grid-template-columns: 20% 50% 15% 15%;
+  grid-template-rows: 100%;
+  background: var(--white);
+}
+
+.parentContainer header nav h1 {
+  align-self: center;
+  font-size: 2em;
+  font-family: "Montserrat", sans-serif;
+}
+
+.parentContainer header nav h1 a {
+  color: var(--blue);
+}
+
+.parentContainer header nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.parentContainer header nav ul li {
+  position: relative;
+  font-family: 1.4em;
+  font-family: "Roboto", sans-serif;
+}
+
+.parentContainer header nav ul li a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.parentContainer header nav ul li:hover a {
+  color: var(--blue);
+}
+
+.parentContainer header nav ul li::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 10%;
+  top: 120%;
+  left: 50%;
+  bottom: 0;
+  background-color: var(--black);
+  border-radius: 0.4em;
+  transition: all 250ms ease;
+}
+
+.parentContainer header nav ul li:hover::before {
+  width: 100%;
+  left: 0%;
+}
+
+.parentContainer header nav .modes {
+  grid-column: 3 / -2;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.parentContainer header nav .modes div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  color: var(--black);
+}
+
+.parentContainer header nav .modes div i {
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.parentContainer header nav .modes div i:hover {
+  transform: rotate(360deg);
+}
+
+.parentContainer header nav .modes div i:nth-child(1) {
+  display: none;
+}
+
+.parentContainer header nav .navLines {
+  grid-column: -1 / -2;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.parentContainer header nav .navLines div {
+  height: 2px;
+  background: var(--black);
+  margin: 0.2em;
+  transition: all 250ms ease;
+}
+
+.parentContainer header nav .navLines .line1 {
+  width: 25px;
+}
+
+.parentContainer header nav .navLines .line2 {
+  width: 20px;
+}
+
+.parentContainer header nav .navLines .line3 {
+  width: 25px;
+}
+
+.parentContainer main {
+  width: 100%;
+  height: 100%;
+}
+
+.parentContainer main .openNav {
+  position: absolute;
+  transform: scale(0);
+  transform-origin: right top;
+  border-end-start-radius: 50em;
+}
+
+.parentContainer main .openNav ul li {
+  transform: scale(0);
+  transform-origin: top;
+}
+
+.parentContainer main .openNav.active {
+  transform: scale(1);
+  position: absolute;
+  min-height: 100vh;
+  width: 100%;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  background: var(--blue);
+  overflow: hidden;
+  overflow-y: hidden;
+  border-radius: 0;
+  transition: border-radius 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.parentContainer main .openNav.active ul {
+  width: 100%;
+  height: 100%;
+  max-height: 450px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.parentContainer main .openNav.active ul li {
+  position: relative;
+  font-size: 1.4em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  transform: scale(1);
+  transition: all 100ms 300ms ease-in;
+}
+
+.parentContainer main .openNav.active ul li a {
+  color: var(--white);
+}
+
+.parentContainer main .openNav.active ul li:hover a, .parentContainer main .openNav.active ul li:focus a {
+  color: var(--black);
+}
+
+.parentContainer main .openNav.active ul li::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 10%;
+  top: 120%;
+  left: 50%;
+  bottom: 0;
+  background-color: var(--black);
+  border-radius: 0.4em;
+  transition: all 250ms ease;
+}
+
+.parentContainer main .openNav.active ul li:hover::before, .parentContainer main .openNav.active ul li:focus::before {
+  width: 100%;
+  left: 0%;
+}
+
+.parentContainer main .index {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parentContainer main .index img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  user-select: none;
+  mix-blend-mode: screen;
+  margin: auto;
+}
+
+.parentContainer main .index video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+  z-index: 1;
+}
+
+.parentContainer main .index h1 {
+  position: relative;
+  inset: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10vw;
+  color: #fff;
+  z-index: 4;
+  text-shadow: 0px 20px 30px rgba(0, 0, 0, 0.9);
+}
+
+.parentContainer main .index h1 span {
+  font-size: 14vw;
+  color: var(--blue);
+}
+
+.parentContainer footer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--white);
+}
+
+.parentContainer footer h4 {
+  color: var(--blue);
+  font-family: "Roboto", sans-serif;
+  font-size: 0.6em;
+  padding-left: 0.4em;
+  font-weight: 400;
+}
+
+body.active {
+  overflow: hidden;
+}
+
+.navLines.active {
+  grid-column: -1 / -2;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.navLines.active div {
+  width: 25px;
+  height: 2px;
+  background: var(--black);
+  margin: 0.2em;
+  padding-left: 0.2em;
+  transition: all 250ms ease;
+}
+
+.navLines.active .line1 {
+  width: 20px;
+  transform: rotate(45deg);
+  transform-origin: left;
+}
+
+.navLines.active .line2 {
+  opacity: 0;
+  transform: translateX(5px) scale(0);
+}
+
+.navLines.active .line3 {
+  width: 20px;
+  transform: rotate(-45deg);
+  transform-origin: left;
+}
+
+.dark #day {
+  display: block;
+  color: --black;
+}
+
+.dark #night {
+  display: none;
+}
+
+.dark #mask {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  user-select: none;
+  mix-blend-mode: multiply;
+  filter: invert(1);
+  margin: auto;
+}
+
+@media (max-width: 700px) {
+  header {
+    grid-column: 1 / -1;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+  }
+  header nav {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    grid-template-columns: 20% 50% 15% 15%;
+    grid-template-rows: 100%;
+    background: var(--white);
+  }
+  header nav h1 {
+    align-self: center;
+    font-size: 2em;
+    font-family: "Montserrat", sans-serif;
+  }
+  header nav h1 a {
+    color: var(--blue);
+  }
+  header nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  header nav ul li {
+    position: relative;
+    font-family: 1.4em;
+    font-family: "Roboto", sans-serif;
+    display: none;
+  }
+  header nav ul li a {
+    text-decoration: none;
+    color: var(--black);
+  }
+  header nav ul li:hover a {
+    color: var(--blue);
+  }
+  header nav ul li::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 10%;
+    top: 120%;
+    left: 50%;
+    bottom: 0;
+    background-color: var(--black);
+    border-radius: 0.4em;
+    transition: all 250ms ease;
+  }
+  header nav ul li:hover::before {
+    width: 100%;
+    left: 0%;
+  }
+  header nav .modes {
+    grid-column: 3 / -2;
+    grid-row: 1 / -1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  header nav .modes div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+    color: var(--black);
+  }
+  header nav .modes div i {
+    cursor: pointer;
+    transition: all 250ms ease;
+  }
+  header nav .modes div i:hover {
+    transform: rotate(360deg);
+  }
+  header nav .modes div i:nth-child(1) {
+    display: none;
+  }
+  header nav .navLines {
+    grid-column: -1 / -2;
+    grid-row: 1 / -1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 250ms ease;
+  }
+  header nav .navLines div {
+    height: 2px;
+    background: var(--black);
+    margin: 0.2em;
+    transition: all 250ms ease;
+  }
+  header nav .navLines .line1 {
+    width: 25px;
+  }
+  header nav .navLines .line2 {
+    width: 20px;
+  }
+  header nav .navLines .line3 {
+    width: 25px;
+  }
+}
+
+@media (min-width: 701px) {
+  header .navLines {
+    grid-column: -1 / -2;
+    grid-row: 1 / -1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 250ms ease;
+    display: none;
+  }
+  header .navLines div {
+    height: 2px;
+    background: var(--black);
+    margin: 0.2em;
+    transition: all 250ms ease;
+    display: none;
+  }
+  header .navLines .line1 {
+    width: 25px;
+  }
+  header .navLines .line2 {
+    width: 20px;
+  }
+  header .navLines .line3 {
+    width: 25px;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.aboutMain {
+  -ms-overflow-style: scroll;
+  max-width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.aboutMain .about {
+  height: 100%;
+  max-width: 100vw;
+  position: relative;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+}
+
+.aboutMain .about .homeBtx1 {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--white);
+}
+
+.aboutMain .about .homeBtx1 .homeContBox {
+  width: 100%;
+  max-width: 40em;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
+  text-align: center;
+  gap: 1em;
+  z-index: 4;
+  background: var(--bg-grad);
+  border: 1px solid var(--black);
+  margin: 3em;
+  border-radius: 0.6em;
+  color: var(--black);
+}
+
+.aboutMain .about .homeBtx1 .homeContBox h1 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.aboutMain .about .homeBtx1 .homeContBox p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.aboutMain .about .homeBtx1 .homeContBox .hidenHome {
+  display: none;
+}
+
+.aboutMain .about .homeBtx1 .homeContBox .hidenHome.reveal {
+  display: block;
+}
+
+.aboutMain .about .homeBtx1 .homeContBox button {
+  padding: 0.4em 0.4em;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  border-radius: 0.4em;
+  background: var(--blue);
+  color: var(--black);
+}
+
+@media (max-width: 500px) {
+  .aboutMain .about .homeBtx1 .homeContBox {
+    margin: 1em;
+  }
+}
+
+.aboutMain .about .homeBtx2 {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutMain .about .homeBtx2 img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.aboutMain .about .abtBx1 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  min-height: max-content;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  padding: 1em;
+  background: linear-gradient(0deg, #fc9e64 0%, #254250 92%);
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+}
+
+.aboutMain .about .abtBx2 {
+  grid-column: 2 / -1;
+  grid-row: 2 / 3;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutMain .about .abtBx2 img {
+  inset: 0 0 0 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 700px) {
+  .aboutMain .about .abtBx1 {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+  }
+  .aboutMain .about .abtBx2 {
+    display: none;
+  }
+}
+
+.aboutMain .about .abtBx3 {
+  grid-column: 1 / -1;
+  grid-row: 3 / 4;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+  background-blend-mode: darken;
+}
+
+.aboutMain .about .abtBx3 h1 {
+  justify-self: flex-start;
+  align-self: center;
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.aboutMain .about .abtBx4 {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+  background: var(--white);
+  text-align: center;
+}
+
+.aboutMain .about .abtBx4 h1 {
+  justify-self: flex-start;
+  align-self: center;
+  padding: 1em;
+}
+
+.aboutMain .about .abtBx4 h3 {
+  padding: 1em;
+}
+
+.aboutMain .about .abtBx4 p {
+  padding: 1em;
+}
+
+.aboutMain .about .abtBx5 {
+  grid-column: 2 / -1;
+  grid-row: 4 / 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+  background: var(--white);
+  text-align: center;
+}
+
+.aboutMain .about .abtBx5 h1 {
+  justify-self: flex-start;
+  align-self: center;
+  padding: 1em;
+}
+
+.aboutMain .about .abtBx5 h3 {
+  padding: 1em;
+}
+
+.aboutMain .about .abtBx5 p {
+  padding: 1em;
+}
+
+.aboutMain .about .abtBx6 {
+  grid-column: 1 / 2;
+  grid-row: 5 / 6;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+  text-align: center;
+}
+
+.aboutMain .about .abtBx6 h3 {
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+}
+
+.aboutMain .about .abtBx7 {
+  grid-column: 2 / -1;
+  grid-row: 5 / 6;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+  text-align: center;
+}
+
+.aboutMain .about .abtBx7 h3 {
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+}
+
+.aboutMain .about .abtBx8 {
+  grid-column: 1 / -1;
+  grid-row: 6 / 7;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+}
+
+.aboutMain .about .abtBx8 p {
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+  max-width: 60em;
+  padding: 1em;
+  margin: auto;
+}
+
+.aboutMain .about .abtBx9 {
+  grid-column: 1 / -1;
+  grid-row: 7 / 8;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+}
+
+.aboutMain .about .abtBx9 h1 {
+  justify-self: flex-start;
+  align-self: center;
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.aboutMain .about .abtBx10 {
+  grid-column: 1 / -1;
+  grid-row: 8 / 9;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+  padding: 0.5em 1em 1em 1em;
+}
+
+.aboutMain .about .abtBx10 p {
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+  line-height: 2em;
+  text-align: center;
+}
+
+.aboutMain .about #abtBtx11 {
+  grid-column: 1 / -1;
+  grid-row: 9 / 10;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+  background-blend-mode: darken;
+}
+
+.aboutMain .about #abtBtx11 h1 {
+  justify-self: flex-start;
+  align-self: center;
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.aboutMain .about .abtBtx12 {
+  grid-column: 1 / -1;
+  grid-row: 10 / -1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--white);
+  padding: 1em;
+  text-align: center;
+}
+
+.aboutMain .about .abtBtx12 p {
+  max-width: 60em;
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+  margin: 0.4em 0em;
+}
+
+.aboutMain .about .abtBtx12 .charter {
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.aboutMain .about .abtBtx12 .charter span {
+  font-family: "Montserrat", sans-serif;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+main .home {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .home img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+main .home .homeContBox {
+  position: absolute;
+  width: 100%;
+  max-width: 40em;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.2em;
+  background: #00000050;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  border-radius: 0.6em;
+  padding: 1em;
+  margin: 0em 2em;
+}
+
+main .home .homeContBox h1 {
+  font-size: 1.4em;
+  font-family: "Roboto", sans-serif;
+}
+
+main .home .homeContBox p {
+  font-size: 0.8em;
+}
+
+main .home .homeContBox .hidenHome {
+  display: none;
+}
+
+main .home .homeContBox .hidenHome.reveal {
+  display: block;
+  transition: all 250ms ease;
+}
+
+main .home .homeContBox button {
+  background: var(--blue);
+  align-self: flex-start;
+  padding: 0.4em 1em;
+  border: none;
+  border-radius: 0.8em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.gallery {
+  max-width: 100vw;
+  height: max-content;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.gallery .galleryHeading {
+  max-width: 100vw;
+  height: 20%;
+  max-height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  color: var(--black);
+}
+
+.gallery .ImageDisplayBox {
+  height: max-content;
+  width: 100vw;
+  max-width: 70em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: auto;
+  overflow: hidden;
+  position: relative;
+  padding: 1em;
+  gap: 0.6em;
+}
+
+.gallery .ImageDisplayBox div {
+  max-height: 20em;
+}
+
+.gallery .ImageDisplayBox div img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery .ImageDisplayBox div:nth-child(1) {
+  grid-column: 1 / 3;
+}
+
+.gallery .ImageDisplayBox div:nth-child(2) {
+  grid-column: 3 / -1;
+}
+
+.gallery .ImageDisplayBox div:nth-child(3) {
+  grid-column: 1 / 2;
+}
+
+.gallery .ImageDisplayBox div:nth-child(4) {
+  grid-column: 2 / -1;
+}
+
+.gallery .ImageDisplayBox div:nth-child(5) {
+  grid-column: 1 / 3;
+}
+
+.gallery .ImageDisplayBox div:nth-child(6) {
+  grid-column: 3 / -1;
+}
+
+.gallery .ImageDisplayBox div:nth-child(7) {
+  grid-column: 1 / 2;
+}
+
+.gallery .ImageDisplayBox div:nth-child(8) {
+  grid-column: 2 / -1;
+}
+
+.gallery .ImageDisplayBox div:nth-child(9) {
+  grid-column: 1 / 3;
+}
+
+.gallery .ImageDisplayBox div:nth-child(10) {
+  grid-column: 3 / -1;
+}
+
+@media (max-width: 700px) {
+  .gallery {
+    width: 100%;
+    height: max-content;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .gallery .galleryHeading {
+    width: 100%;
+    height: 20%;
+    max-height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    font-size: 1.4em;
+    font-family: "Montserrat", sans-serif;
+    overflow: hidden;
+    text-align: center;
+  }
+  .gallery .ImageDisplayBox {
+    height: max-content;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    overflow: hidden;
+    position: relative;
+    padding: 0.4em;
+    gap: 0.6em;
+  }
+  .gallery .ImageDisplayBox div img {
+    width: 100%;
+    height: 100%;
+  }
+  .gallery .ImageDisplayBox div:nth-child(1) {
+    grid-column: 1 / -1;
+  }
+  .gallery .ImageDisplayBox div:nth-child(2) {
+    grid-column: 1 / 2;
+  }
+  .gallery .ImageDisplayBox div:nth-child(3) {
+    grid-column: 2 / -1;
+  }
+  .gallery .ImageDisplayBox div:nth-child(4) {
+    grid-column: 1 / -1;
+  }
+  .gallery .ImageDisplayBox div:nth-child(5) {
+    grid-column: 1 / 2;
+  }
+  .gallery .ImageDisplayBox div:nth-child(6) {
+    grid-column: 2 / -1;
+  }
+  .gallery .ImageDisplayBox div:nth-child(7) {
+    grid-column: 1 / -1;
+  }
+  .gallery .ImageDisplayBox div:nth-child(8) {
+    grid-column: 1 / 2;
+  }
+  .gallery .ImageDisplayBox div:nth-child(9) {
+    grid-column: 2 / -1;
+  }
+  .gallery .ImageDisplayBox div:nth-child(10) {
+    grid-column: 1 / -1;
+  }
+}
+
+.contact {
+  max-width: 100vw;
+  height: max-content;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.contact .contactBoxHeading {
+  max-width: 100vw;
+  height: 20%;
+  max-height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0em;
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  color: var(--black);
+}
+
+.contact .contactBoxHeading h1 {
+  letter-spacing: 5px;
+  font-size: 1em;
+}
+
+.contact .contactBoxHeading h1 span {
+  color: var(--blue);
+  font-size: 1.8em;
+}
+
+.contact .contactContentBox {
+  height: max-content;
+  width: 100vw;
+  max-width: 70em;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0em 0.4em;
+  gap: 0.6em;
+}
+
+.contact .contactContentBox .contactInfo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--black);
+}
+
+.contact .contactContentBox .contactInfo .address {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.8em 0em;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em;
+  color: var(--black);
+}
+
+.contact .contactContentBox .contactInfo .contactLinks {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  padding: 0.8em 0em;
+}
+
+.contact .contactContentBox .contactInfo .contactLinks a {
+  color: var(--black);
+}
+
+.contact .contactContentBox .enquiryForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.contact .contactContentBox .enquiryForm h3 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+  font-size: 1em;
+  padding: 0.8em;
+}
+
+.contact .contactContentBox .enquiryForm form {
+  height: 100%;
+  width: 100%;
+  max-width: 40em;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-auto-rows: auto;
+  gap: 0.8em;
+  padding: 1em;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.contact .contactContentBox .enquiryForm form label {
+  color: var(--black);
+}
+
+.contact .contactContentBox .enquiryForm form input {
+  font-family: "Roboto", sans-serif;
+  padding: 00.4em;
+  border: 2px solid var(--black);
+  border-radius: 0.4em;
+}
+
+.contact .contactContentBox .enquiryForm form .button {
+  grid-column: 1 / -1;
+}
+
+.contact .contactContentBox .enquiryForm form .button button {
+  border: none;
+  border-radius: 0.4em;
+  background: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0.4em 1em;
+}
+
+.contact .contactContentBox .enquiryForm form textarea {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8em;
+  padding: 00.4em;
+  border: 2px solid var(--black);
+  border-radius: 0.4em;
+}
+
+.contact .contactContentBox .enquiryForm form .contactBtn1 {
+  width: 100%;
+  max-width: 6em;
+  margin: auto;
+  padding: 0.4em 0.4em;
+  font-family: "Roboto", sans-serif;
+}
+
+.contact .contactContentBox .enquiryForm form .contactBtn2 {
+  width: 100%;
+  max-width: 6em;
+  margin-right: auto;
+  font-family: "Roboto", sans-serif;
+}
+/*# sourceMappingURL=main.css.map */
