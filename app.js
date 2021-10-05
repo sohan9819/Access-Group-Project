@@ -12,6 +12,8 @@ navLines.addEventListener("click", () => {
   body.classList.toggle("active");
 });
 
+let drkLgtStatus;
+
 drkLgt.addEventListener("click", () => {
   parent.classList.toggle("dark");
 });

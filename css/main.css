@@ -912,76 +912,519 @@ ul {
   font-family: "Montserrat", sans-serif;
 }
 
-main {
-  width: 100vw;
-  height: 100vh;
+.serviceMain {
+  -ms-overflow-style: scroll;
+  max-width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
 }
 
-main .home {
+.serviceMain .services {
+  height: 100%;
+  max-width: 100vw;
   position: relative;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-auto-rows: auto;
+}
+
+.serviceMain .services .serviceBx1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  min-height: max-content;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--white);
+  inset: 0;
+  padding: 3em 1em;
+  background: linear-gradient(0deg, #fc9e64 0%, #254250 92%);
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+}
+
+.serviceMain .services .serviceBx2 {
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+  width: 100%;
+  height: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-main .home img {
-  position: absolute;
+.serviceMain .services .serviceBx2 img {
+  inset: 0 0 0 0;
   width: 100%;
   height: 100%;
-  opacity: 0.8;
 }
 
-main .home .homeContBox {
-  position: absolute;
+@media (max-width: 700px) {
+  .serviceMain .services .serviceBx1 {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    padding: 3em 1em;
+  }
+  .serviceMain .services .serviceBx2 {
+    display: none;
+  }
+}
+
+.serviceMain .services .serviceBx3 {
+  grid-column: 1 / -1;
+  height: 100%;
   width: 100%;
-  max-width: 40em;
-  height: max-content;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 1.2em;
-  background: #00000050;
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  border-radius: 0.6em;
   padding: 1em;
-  margin: 0em 2em;
+  text-align: center;
+  background: var(--white);
 }
 
-main .home .homeContBox h1 {
+.serviceMain .services .serviceBx3 h2 {
   font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx4 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx4 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
   font-family: "Roboto", sans-serif;
 }
 
-main .home .homeContBox p {
-  font-size: 0.8em;
+.serviceMain .services .serviceBx5 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
 }
 
-main .home .homeContBox .hidenHome {
-  display: none;
+.serviceMain .services .serviceBx5 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
 }
 
-main .home .homeContBox .hidenHome.reveal {
-  display: block;
-  transition: all 250ms ease;
+.serviceMain .services .serviceBx6 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
 }
 
-main .home .homeContBox button {
-  background: var(--blue);
-  align-self: flex-start;
-  padding: 0.4em 1em;
-  border: none;
-  border-radius: 0.8em;
+.serviceMain .services .serviceBx6 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
   font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  cursor: pointer;
+}
+
+.serviceMain .services .serviceBx7 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx7 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx8 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx8 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx9 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx9 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx10 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx10 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx11 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx11 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx12 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx12 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx13 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx13 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx14 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx14 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx15 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx15 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx16 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx16 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx17 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx17 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx18 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx18 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx19 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx19 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx20 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx20 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx21 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx21 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx22 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx22 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx23 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx23 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx24 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx24 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+}
+
+.serviceMain .services .serviceBx25 {
+  grid-column: 1 / -1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx25 h2 {
+  font-size: 1.4em;
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue);
+}
+
+.serviceMain .services .serviceBx26 {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-content: center;
+  padding: 1em;
+  background: var(--white);
+}
+
+.serviceMain .services .serviceBx26 p {
+  grid-column: 1 / -1;
+  max-width: 50em;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
 }
 
 .gallery {
